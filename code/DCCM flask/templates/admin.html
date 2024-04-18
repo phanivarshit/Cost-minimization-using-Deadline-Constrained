@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+
+    <title>ADMIN</title>
+  </head>
+  <body style=" background-color: aliceblue;" >
+    <nav class="navbar navbar-expand-lg bg-body-dark bg-dark" data-bs-theme="dark" style="height: 100px;">
+        <div class="container-fluid">
+          <a class="nav-item" href="#" style="text-decoration: none; color: white;  font-size: 35px;">DCCM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-flex justify-content-center mx-4" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+              <a class="nav-link active mx-3" aria-current="page"  style="text-decoration: none; color: white; font-size: 20px;" href="#">Upload File</a>
+              <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="viewfilesadmin.html">View Files</a>
+              <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="viewrequests.html">View Requests</a>
+              <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="/">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <center>
+        <h1 style="margin-top: 198px;">Upload Files</h1>
+        <div  style="width: 45%;">
+            <form class="mx-5 pt-5" action="#" method="post">
+                <div class="mb-3">
+                  <!-- <label for="exampleInputEmail1" class="form-label" >File name</label> -->
+                  <input style=" width: 379px;" class="form-control py-3" type="text" class="form-control" id="filename" name="filename" placeholder="Enter the File Name" aria-describedby="emailHelp">
+                 
+                </div>
+                <div class="mb-3 ">
+                    <!-- <label for="exampleInputEmail1" class="form-label">Selelct Deadline</label> -->
+                <select class="form-select py-3" style=" width: 379px;"aria-label="Default select example" placeholder="Enter the Deadline" name="deadline">
+                    <option selected>1</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+        
+                </div>
+        
+                <div class="mb-5">
+                    <!-- <label for="formFile" class="form-label">Choose one File to Upload</label> -->
+                    <input class="form-control py-3" style=" width: 379px;" type="file" id="formFile" name="file">
+                  </div>
+                
+                <center>
+                    <button type="submit" class="btn btn-primary " style="width: 250px; height: 45px;">Submit</button>
+        
+                </center>
+              </form>
+    
+          </div>
+
+      </center>
+      
+
+      
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

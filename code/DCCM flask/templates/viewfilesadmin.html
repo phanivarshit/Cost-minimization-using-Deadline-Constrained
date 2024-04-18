@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <style>
+      table {
+  table-layout: fixed; /* Ensures fixed width columns */
+}
+  .content-cell {
+  position: relative;
+  width: 30%;
+}
+
+.content-excerpt {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  height: 6rem; /* Adjust height based on desired number of lines */
+}
+
+.read-more-btn {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+}
+
+.content-cell:hover .read-more-btn {
+  display: inline-block;
+}
+     </style>
+    <title>ADMIN</title>
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-lg bg-body-dark bg-dark mb-5" data-bs-theme="dark" style="height: 100px;">
+      <div class="container-fluid">
+        <a class="nav-item" href="#" style="text-decoration: none; color: white;  font-size: 35px;">DCCM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-center mx-4 px-lg-5" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-link active mx-3" aria-current="page"  style="text-decoration: none; color: white; font-size: 20px;" href="admin.html">Upload File</a>
+            <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="#">View Files</a>
+            <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="viewrequests.html">View Requests</a>
+            <a class="nav-link mx-3" style="text-decoration: none; color: white; font-size: 20px;" href="/">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <center>
+
+      <center>
+        
+        <h1 class="mt-3"><b>Here are the files you've uploaded!!</b></h1>
+
+      </center>
+
+        
+              
+              {% if allFiles|length ==0  %}
+              <div class="alert alert-danger" role="alert">
+                There are no files uploaded!!
+              </div>
+              {% else %}
+              <table class="table mt-5" style="width: 95%;">
+                <thead>
+                  <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">File name</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">File Content</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Actions</th>
+                    <th scope="col">Uploaded</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+              {% for files in allFiles  %}
+              <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{files.filename}}</td>
+                <td>{{files.deadline}}</td>
+                <td class="content-cell" style="width: 30%;">
+                  <span class="content-excerpt">{{ files.encrypted_text | safe }}</span>
+                  
+                </td>
+                <td>$-{{files.cost}}</td>
+                <a href="#" class="read-more-btn">Read More</a>
+                <td style="width: auto;">
+                  
+                  <a href="/upload/{{files.sno}}" type="button" class="btn btn-outline-secondary btn-sm mx-1 ">Upload</button>
+                  
+                  
+                  <a href="/delete/{{files.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</button>
+                
+                </td>
+                <td>{{files.uploaded}}</td>
+                
+              </tr>
+                
+              {% endfor %}
+                
+              {% endif %}
+              
+              
+              
+            </tbody>
+          </table>
+
+    </center>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
